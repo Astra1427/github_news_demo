@@ -24,6 +24,7 @@ class Github {
     }
 
     final url = Github.api + path + queryString;
+    print('request::: $url');
     final request = Request(method, Uri.parse(url));
     request.headers.addAll(headers);
     if(body!=null){
@@ -33,6 +34,7 @@ class Github {
        request.body = body.toString();
       }
     }
+
     final streamResponse = await client.send(request);
     return await Response.fromStream(streamResponse);
   }
@@ -50,7 +52,7 @@ class Github {
         continue;
       }
       queryString.write(
-        '$key = ${Uri.encodeComponent(params[key].toString())}'
+        '$key=${Uri.encodeComponent(params[key].toString())}'
       );
       if(i != params.keys.length){
         queryString.write('&');
