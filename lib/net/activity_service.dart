@@ -8,7 +8,7 @@ class ActivityService extends Service {
 
   Future<List<Event>> listPublicEvents(int page, int perPage) async {
     var response = await github
-        .request('GET', '/events', params: {'page': page, 'perPage': perPage});
+        .request('GET', '/events', params: {'page': page, 'per_page': perPage});
     final json = jsonDecode(response.body) as List;
     return json.map((e) => Event.fromJson(e)).toList();
   }
@@ -18,9 +18,11 @@ class ActivityService extends Service {
     var response =
         await github.request('GET', '/users/$login/received_events', params: {
       'page': page,
-      'perPage': perPage,
+      'per_page': perPage,
     });
-    final json = jsonDecode(response.body) as List;
+
+    print(response.body);
+    final json = jsonDecode(response.body) as List<dynamic>;
     return json.map((e) => Event.fromJson(e)).toList();
   }
 }
