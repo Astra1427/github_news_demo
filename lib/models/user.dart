@@ -9,18 +9,18 @@ class User {
   String login;
   int id;
   String avatarUrl;
-  String htmlUrl;
-  String name;
-  String company;
-  String blog;
-  String location;
-  String email;
+  String? htmlUrl;
+  String? name;
+  String? company;
+  String? blog;
+  String? location;
+  String? email;
 
   @JsonKey(name:'followers')
-  int followersCount;
+  int? followersCount;
 
   @JsonKey(name:'following')
-  int followingCount;
+  int? followingCount;
 
   User(
       this.login,

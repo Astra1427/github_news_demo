@@ -8,28 +8,28 @@ part 'repository.g.dart';
 class Repository{
   final String name;
   final int id;
-  final String fullName;
-  final UserInformation owner;
-  final bool private;
-  final bool fork;
+  final String? fullName;
+  final UserInformation? owner;
+  final bool? private;
+  final bool? fork;
   final String url;
-  final String description;
-  final String cloneUrl;
-  final String gitUrl;
-  final String homePage;
-  final int size;
+  final String? description;
+  final String? cloneUrl;
+  final String? gitUrl;
+  final String? homePage;
+  final int? size;
 
   @JsonKey(name:'stargazers_count')
-  final int stargazersCount;
+  final int? stargazersCount;
 
   @JsonKey(name:'watchers_count')
-  final int watchersCount;
+  final int? watchersCount;
 
   @JsonKey(name:'forks_count')
-  final int forksCount;
+  final int? forksCount;
 
   @JsonKey(name:'subscribers_count')
-  final int subscribersCount;
+  final int? subscribersCount;
 
   Repository(
       this.name,
